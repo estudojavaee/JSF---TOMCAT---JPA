@@ -3,6 +3,7 @@ package br.com.mrksFelipe.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Pessoa implements Serializable {
 	@Column(nullable = true)
 	private Date idade;
 	
-	@OneToOne
+	@OneToOne(cascade= CascadeType.PERSIST)
 	@JoinColumn(name="fk_endereco")
 	private Endereco endereco;
 	

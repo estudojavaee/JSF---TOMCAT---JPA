@@ -34,7 +34,7 @@ public class CadastroPessoaMB {
 		System.out.println(endereco);
 		
 		pessoa.setEndereco(endereco);
-		
+		pessoa.setId(null);
 		dao = new PessoaDAO();
 		dao.salvar(pessoa);
 		
@@ -42,10 +42,6 @@ public class CadastroPessoaMB {
 		
 		return null;
 	}
-
-
-	
-	
 
 	public Pessoa getPessoa() {
 		return pessoa;

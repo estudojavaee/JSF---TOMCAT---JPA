@@ -1,22 +1,26 @@
 package br.com.mrksFelipe.repository;
 
-import javax.persistence.EntityManager;
-
-import br.com.mrksFelipe.filter.JPA;
 import br.com.mrksFelipe.model.Pessoa;
 
-public class PessoaDAO {
+public class PessoaDAO extends GenericDAO<Pessoa>{
 
 	
 	
-	EntityManager em = JPA.em();
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public PessoaDAO() {
+		super(Pessoa.class);
+	}
 	
 	public void salvar(Pessoa p){
-		
-		 em.persist(p);
-		
+		beginTransaction();
+		save(p);
+		commitAndCloseTransaction();
 	}
+
 	
 	
 	
